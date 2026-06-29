@@ -81,13 +81,18 @@ export default function App() {
 
   if (state === 'error') {
     return (
-      <div className="page-shell flex items-center justify-center px-4">
-        <div className="surface w-full max-w-md p-8 text-center">
-          <p className="mb-2 font-semibold text-red">Audit failed</p>
-          <p className="mb-4 text-sm text-secondary">
+      <div className="flex min-h-screen w-full items-center justify-center bg-linear-to-br from-background via-background to-muted/35 px-4 py-8">
+        <div className="w-full max-w-md rounded-4xl border border-border/70 bg-card/90 p-8 text-center shadow-lg backdrop-blur">
+          <p className="mb-2 font-semibold text-destructive">Audit failed</p>
+          <p className="mb-4 text-sm text-foreground">
             Could not reach the Supabase instance. Check your URL and anon key, then try again.
           </p>
-          <button onClick={restart} className="btn-primary rounded-2xl px-4 py-2">Try Again</button>
+          <button
+            onClick={restart}
+            className="inline-flex h-10 items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/80"
+          >
+            Try Again
+          </button>
         </div>
       </div>
     );

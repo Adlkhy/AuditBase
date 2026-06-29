@@ -46,7 +46,7 @@ export default function ScoreRing({ result }: Props) {
     : '#F43F5E';
 
   return (
-    <div className="surface flex min-h-[300px] flex-col items-center p-6">
+    <div className="flex min-h-75 flex-col items-center rounded-3xl border border-border/70 bg-card/85 p-6 shadow-sm">
       <p className="mb-4 self-start text-sm font-medium text-secondary-foreground">Security Score</p>
 
       <div className="relative w-48 h-48">
@@ -93,27 +93,27 @@ export default function ScoreRing({ result }: Props) {
           >
             {result.grade}
           </span>
-          <span className="font-mono text-lg text-secondary-foreground mt-0.5">
+          <span className="font-mono text-lg text-foreground mt-0.5">
             {animScore}
-            <span className="text-muted text-sm">/100</span>
+            <span className="text-muted-foreground text-sm">/100</span>
           </span>
         </div>
       </div>
 
       {/* Legend */}
-      <div className="mt-4 flex flex-col gap-2 w-full">
+      <div className="mt-4 flex w-full flex-col gap-2">
         {[
           { label: 'Secure',     val: secure,  color: '#10B981' },
           { label: 'Vulnerable', val: vuln,    color: '#F43F5E' },
           { label: 'Unknown',    val: unknown, color: '#2A2A35', border: '#3A3A48' },
         ].map(item => (
-            <div key={item.label} className="flex items-center justify-between text-xs">
+          <div key={item.label} className="flex items-center justify-between text-xs">
             <div className="flex items-center gap-2">
               <span
                 className="w-2.5 h-2.5 rounded-sm shrink-0"
                 style={{ background: item.color, border: item.border ? `1px solid ${item.border}` : undefined }}
               />
-                <span className="text-secondary-foreground">{item.label}</span>
+              <span className="text-secondary-foreground">{item.label}</span>
             </div>
             <span className="font-mono text-primary">{item.val}</span>
           </div>
